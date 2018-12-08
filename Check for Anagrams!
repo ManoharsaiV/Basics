@@ -1,0 +1,59 @@
+package com.hackerrank.anagram;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Anagram {
+	public static String anagramCheck(String s1, String s2) {
+		String result = null;
+		if(s1.length() != s2.length()){
+			result = "Not Anagrams";
+			System.out.println(result);
+			}
+		else{
+			char[] a1 = s1.toCharArray();
+			insertionSort(a1);
+			char[] a2 = s2.toCharArray();
+			insertionSort(a2);
+			if(Arrays.equals(a1, a2)){
+				result = "Anagrams";
+				System.out.println(result);
+				
+			}
+			else {
+				result = "Not Anagrams";
+				System.out.println(result);
+			}
+		}
+		return result;
+		
+	}
+	
+	public static char[] insertionSort(char[] arr) {
+		char temp;
+		for(int i=0; i<arr.length; i++){
+			temp = arr[i];
+			for(int j=i; j>0 && temp<arr[j-1]; j--){
+				arr[j] = arr[j-1];
+				arr[j-1] = temp;	
+			}
+		}
+		char[] result = arr;
+		return result;
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter string one");
+		String s1 = scan.nextLine();
+		System.out.println("enter string two");
+		String s2 = scan.nextLine();
+		anagramCheck(s1,s2);
+		scan.close();
+		
+	}
+
+}
