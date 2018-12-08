@@ -1,0 +1,31 @@
+package com.hackerrank.kangaroojumps;
+
+import java.util.Scanner;
+
+public class KangarooJumps {
+	public static String jumpSequence(int x1, int v1, int x2, int v2) {
+		String result = "NO";
+		if((x1-x2)%(v1-v2) == 0){
+			result = "YES";
+			System.out.println(result);
+		}
+		else {
+			result = "NO";
+			System.out.println(result);
+		}
+		return result;
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the values");
+		String[] points = sc.nextLine().split(" ");
+		int x1 = Integer.parseInt(points[0]);
+		int v1 = Integer.parseInt(points[1]);
+		int x2 = Integer.parseInt(points[2]);
+		int v2 = Integer.parseInt(points[3]);
+		jumpSequence(x1, v1, x2, v2);
+		sc.close();
+
+	}
+
+}
